@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Shadow</title>
-  <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Google Classroom</title>
+  <link id="favicon" rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/favicon.png">
   <style>
     html, body {
       margin: 0;
@@ -30,22 +30,32 @@
   ></iframe>
 
   <script>
-    // Change the page title
-    document.title = "New Shadow Game";
+    // Set custom title and favicon for tab cloak
+    const cloakedTitle = "Google Classroom";
+    const cloakedFavicon = "https://ssl.gstatic.com/classroom/favicon.png";
 
-    // Change the favicon
-    const newFavicon = 'https://example.com/new-favicon.ico'; // Change this to your desired favicon URL
+    // Apply tab cloak
+    document.title = cloakedTitle;
     const faviconElement = document.getElementById('favicon');
     if (faviconElement) {
-      faviconElement.href = newFavicon;
+      faviconElement.href = cloakedFavicon;
     } else {
       const newLink = document.createElement('link');
       newLink.rel = 'icon';
       newLink.type = 'image/x-icon';
-      newLink.href = newFavicon;
+      newLink.href = cloakedFavicon;
       newLink.id = 'favicon';
       document.head.appendChild(newLink);
     }
+
+    // OPTIONAL: Switch back to original when mouse leaves tab
+    const originalTitle = "Shadow Game";
+    window.addEventListener("blur", () => {
+      document.title = cloakedTitle;
+    });
+    window.addEventListener("focus", () => {
+      document.title = cloakedTitle;
+    });
   </script>
 </body>
 </html>
