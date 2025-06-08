@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8">
   <title>Shadow</title>
+  <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
     html, body {
       margin: 0;
@@ -28,5 +28,24 @@
     allow="fullscreen"
     sandbox="allow-scripts allow-same-origin"
   ></iframe>
+
+  <script>
+    // Change the page title
+    document.title = "New Shadow Game";
+
+    // Change the favicon
+    const newFavicon = 'https://example.com/new-favicon.ico'; // Change this to your desired favicon URL
+    const faviconElement = document.getElementById('favicon');
+    if (faviconElement) {
+      faviconElement.href = newFavicon;
+    } else {
+      const newLink = document.createElement('link');
+      newLink.rel = 'icon';
+      newLink.type = 'image/x-icon';
+      newLink.href = newFavicon;
+      newLink.id = 'favicon';
+      document.head.appendChild(newLink);
+    }
+  </script>
 </body>
 </html>
